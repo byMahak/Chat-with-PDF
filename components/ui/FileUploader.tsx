@@ -2,6 +2,7 @@
 import {useDropzone} from 'react-dropzone'
 import { JSX, useCallback, useEffect } from 'react';
 import {
+    AlertCircleIcon,
     CheckCircleIcon,
     CircleArrowDown,
     HammerIcon,
@@ -32,22 +33,24 @@ function FileUploader() {
     }
   },[]);
 
-  const statusIcons : {
-    [key in StatusText] : JSX.Element;
-  } = {
-    [StatusText.UPLOADING]: (
-        <RocketIcon className='h-20 w-20 text-indigo-600'/>
-    ),
-    [StatusText.UPLOADED]: (
-        <CheckCircleIcon className='h-20 w-20 text-indigo-600'/>
-    ),
-    [StatusText.SAVING]: (
-        <SaveIcon className='h-20 w-20 text-indigo-600'/>
-    ),
-    [StatusText.GENERATING]: (
-        <HammerIcon className='h-20 w-20 text-indigo-600 animate-bounce'/>
-    ),
-  }
+const statusIcons: Record<StatusText, JSX.Element> = {
+  [StatusText.UPLOADING]: (
+    <RocketIcon className='h-20 w-20 text-indigo-600'/>
+  ),
+  [StatusText.UPLOADED]: (
+    <CheckCircleIcon className='h-20 w-20 text-indigo-600'/>
+  ),
+  [StatusText.SAVING]: (
+    <SaveIcon className='h-20 w-20 text-indigo-600'/>
+  ),
+  [StatusText.GENERATING]: (
+    <HammerIcon className='h-20 w-20 text-indigo-600 animate-bounce'/>
+  ),
+  [StatusText.ERROR]: (
+    <AlertCircleIcon className='h-20 w-20 text-red-600'/>
+  ),
+};
+
 
   const {getRootProps, getInputProps, isDragActive, isFocused, isDragAccept} = 
     useDropzone({

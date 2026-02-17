@@ -6,15 +6,13 @@ import React from 'react'
 function DashboardLayout({children}: {children: React.ReactNode}) {
   return (
     <ClerkLoaded>
-        <div className="flex-1 flex flex-col h-screen">
-            <Header />
+        <div className="flex flex-col h-screen">
+        <Header />
+        <main className="flex-1 overflow-hidden">
+          {children}
+        </main>
+      </div>
 
-            <main className="flex-1 overdlow-y-auto">
-                {children}
-            </main>
-
-           
-        </div>
     </ClerkLoaded>
   );
 }

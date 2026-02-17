@@ -1,6 +1,5 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 
-// Correctly define the protected routes
 const isProtectedRoute = createRouteMatcher(["/dashboard(.*)"]);
 
 // The handler takes (auth, request) - NOT ({auth, req})

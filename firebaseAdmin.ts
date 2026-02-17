@@ -1,7 +1,6 @@
 import { initializeApp, getApps, App, getApp, cert } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 
-// Ensure your service_key.json is in your .gitignore!
 const serviceKey = require("@/service_key.json");
 
 let app: App;
